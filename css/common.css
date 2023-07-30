@@ -24,3 +24,23 @@ body {
   background-image: url(../assets/bg/cross.svg);
   background-size: 38px;
 }
+
+.logo {
+  font-weight: 800;
+  padding: 4px 0;
+  background: #fff;
+  z-index: 3;
+  color: var(--cred);
+}
+
+.logo::before {
+  content: "";
+  display: block;
+  border: 2px solid #000;
+  border-radius: 0 24px 0 0;
+  padding: 4px;
+  margin-left: 11.5px;
+  margin-bottom: -24px;
+  height: 30px;
+  width: 60px;
+}
