@@ -28,12 +28,10 @@
   z-index: 2;
   cursor: pointer;
   position: absolute;
-  top: var(--hamburger-margin-top);
-  left: var(--hamburger-margin-side);
 }
 
 .hamburger-menu:has(input:checked) {
-  --foreground: #333;
+  --foreground: #ec5242;
   --background: #333;
 }
 
@@ -81,8 +79,10 @@
 .sidebar {
   transition: transform var(--animation-timing);
   transform: translateX(-100%);
-  padding: 0.5rem 1rem;
-  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+  padding: 80px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   background-color: #fff;
   color: var(--background);
   width: 200px;
