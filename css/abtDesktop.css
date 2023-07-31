@@ -1,0 +1,142 @@
+.headline-container-abt {
+  background: url(../assets/bg/desktop-bg-abt.svg);
+  background-size: contain;
+  width: 100%;
+  height: 88vh;
+}
+
+.headline-abt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0 44px 0;
+  color: var(--cblk);
+}
+
+.title-abt {
+  font-family: 'COCOGOOSE', sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  color: var(--cred);
+}
+
+.title-abt-1 {
+  font-size: 1.2rem;
+}
+
+.title-abt-1::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid var(--cred);
+  width: 30px;
+  margin: 12px auto 0;
+}
+
+.title-abt::after {
+  content: "";
+  display: block;
+  border: 1px solid var(--cred);
+  width: 50px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.intro-txt-abt {
+  width: fit-content;
+  background: #fff;
+  padding: 24px;
+  margin-bottom: 50px;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.intro-txt-abt-2 {
+  width: fit-content;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.email {
+  font-weight: 600;
+  border-bottom: 1px solid var(--cblk);
+  margin-top: 8px;
+}
+
+.main-abt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 50px 0;
+}
+
+.main-abt *:not(:last-child) {
+  text-align: center;
+  max-width: 800px;
+}
+
+.logo-abk {
+  font-weight: 800;
+  background: #fff;
+  z-index: 3;
+  color: var(--cred);
+  padding: 50px 200px;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.7);
+}
+
+.logo-abk::before {
+  content: "";
+  display: block;
+  border: 2px solid #000;
+  border-radius: 0 24px 0 0;
+  padding: 4px;
+  margin-left: 11.5px;
+  margin-bottom: -24px;
+  height: 30px;
+  width: 60px;
+}
+
+.main-abt-2 {
+  text-align: center;
+  padding: 50px 0;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pass-celebrate {
+  display: flex;
+  gap: 24px;
+}
+
+.p-c {
+  height: 100px;
+}
+
+.p-c div {
+  background-color: #ffffff8f;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-c:first-child {
+  background-image: url(../assets/pass-events/unnam.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.p-c:last-child {
+  background: url(../assets/pass-events/unnamed.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

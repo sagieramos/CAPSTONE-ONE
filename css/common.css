@@ -97,3 +97,7 @@ a {
 .sponsors li:nth-child(5) {
   font-size: 26px;
 }
+
+.headline-abt * {
+  text-align: center;
+}

@@ -48,12 +48,12 @@ function handleResize() {
 
 function createSpeakers() {
   const width = window.innerWidth;
-  if (width < 747) {
+  if (width < windowWidth.min) {
     for (let i = 0; i < 2; i += 1) {
       const speakerElement = createSpeakerElement(speakersData[i]);
       speakersContainer.appendChild(speakerElement);
     }
-  } else if (width > 746) {
+  } else if (width > windowWidth.max) {
     while (speakersContainer.firstChild) {
       speakersContainer.removeChild(speakersContainer.firstChild);
     }
