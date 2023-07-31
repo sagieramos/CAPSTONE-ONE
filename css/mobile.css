@@ -165,7 +165,7 @@ header {
   padding: 12px;
 }
 
-.speakers-container {
+#speaker {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -237,4 +237,13 @@ header {
   flex-direction: column;
   gap: 10px;
   font-size: 0.8rem;
+}
+
+.toggle-more-less {
+  width: 90%;
+  text-align: center;
+  margin: 32px auto;
+  border: 1px solid var(--cblk);
+  padding: 12px;
+  background-color: #fff;
 }
