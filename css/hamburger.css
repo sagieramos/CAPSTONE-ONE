@@ -84,13 +84,13 @@
   flex-direction: column;
   gap: 24px;
   background-color: #fff;
-  color: var(--background);
   width: 200px;
   height: 100vh;
   overflow-x: auto;
   position: absolute;
   top: -2px;
   left: 0;
+  color: var(--cblk);
 }
 
 .hamburger-menu:has(input:checked) + .sidebar {

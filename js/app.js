@@ -1,32 +1,34 @@
 import { speakersData, createSpeakerElement } from './module.js';
 
+const windowWidth = { max: 746, min: 747 };
+
 const speakersContainer = document.getElementById('speaker');
 const body = document.querySelector('body');
 
-function toggleSpeeker(e) {
+function toggleSpeaker(e) {
   const { target } = e;
   if (target.matches('#toggle-more')) {
     for (let i = 2; i < speakersData.length; i += 1) {
       const speakerElement = createSpeakerElement(speakersData[i]);
       speakersContainer.appendChild(speakerElement);
     }
-    target.removeEventListener('click', toggleSpeeker);
+    target.removeEventListener('click', toggleSpeaker);
     target.setAttribute('id', 'toggle-less');
     target.innerText = 'LESS';
-    target.addEventListener('click', toggleSpeeker);
+    target.addEventListener('click', toggleSpeaker);
   } else if (target.matches('#toggle-less')) {
     while (speakersContainer.childElementCount > 2) {
       speakersContainer.removeChild(speakersContainer.lastChild);
     }
-    target.removeEventListener('click', toggleSpeeker);
+    target.removeEventListener('click', toggleSpeaker);
     target.setAttribute('id', 'toggle-more');
     target.innerText = 'MORE';
-    target.addEventListener('click', toggleSpeeker);
+    target.addEventListener('click', toggleSpeaker);
   }
 }
 
 function handleResize() {
-  if (window.innerWidth >= 747) {
+  if (window.innerWidth >= windowWidth.min) {
     while (speakersContainer.firstChild) {
       speakersContainer.removeChild(speakersContainer.firstChild);
     }
@@ -34,7 +36,8 @@ function handleResize() {
       const speakerElement = createSpeakerElement(speaker);
       speakersContainer.appendChild(speakerElement);
     });
-  } else if (window.innerWidth <= 746) {
+    document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-less');
+  } else if (window.innerWidth <= windowWidth.max) {
     const speakersContainer = document.getElementById('speaker');
     while (speakersContainer.childElementCount > 2) {
       speakersContainer.removeChild(speakersContainer.lastChild);
@@ -44,20 +47,24 @@ function handleResize() {
 }
 
 function createSpeakers() {
-  if (window.innerWidth >= 747) {
+  const width = window.innerWidth;
+  if (width < 747) {
+    for (let i = 0; i < 2; i += 1) {
+      const speakerElement = createSpeakerElement(speakersData[i]);
+      speakersContainer.appendChild(speakerElement);
+    }
+  } else if (width > 746) {
+    while (speakersContainer.firstChild) {
+      speakersContainer.removeChild(speakersContainer.firstChild);
+    }
     speakersData.forEach((speaker) => {
       const speakerElement = createSpeakerElement(speaker);
       speakersContainer.appendChild(speakerElement);
     });
-  } else {
-    for (let i = 2; i < speakersData.length; i += 1) {
-      const speakerElement = createSpeakerElement(speakersData[i]);
-      speakersContainer.appendChild(speakerElement);
-    }
   }
 }
 
 document.addEventListener('DOMContentLoaded', createSpeakers);
 window.addEventListener('resize', handleResize);
-body.addEventListener('click', toggleSpeeker);
-body.addEventListener('touchstart', toggleSpeeker);
+body.addEventListener('click', toggleSpeaker);
+body.addEventListener('touchstart', toggleSpeaker);
