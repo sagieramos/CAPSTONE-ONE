@@ -3,7 +3,7 @@
 
 :read-only {
   --max-width: 746px;
-  --window-width: 65%;
+  --window-width: 78%;
   --cblk: #273a31;
   --cred: #ec5242;
   --cgray: #d3d3d3;
@@ -112,4 +112,41 @@ a {
   position: absolute;
   background: #0000006c;
   z-index: 1;
+}
+
+.spk-qualities {
+  color: var(--cred);
+  font-weight: bold;
+  font-style: italic;
+}
+
+.Program-foot {
+  border: none;
+}
+
+#speakers,
+.time {
+  color: var(--cblk);
+}
+
+.toggle-more-less {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 0 0 10px hsla(152, 20%, 19%, 0.2);
+}
+
+#toggle-more::after {
+  display: inline-block;
+  content: url(../assets/bg/more-singers.png);
+  transform: scale(0.4) rotate(90deg);
+  margin-left: -8px;
+}
+
+#toggle-less::after {
+  display: inline-block;
+  content: url(../assets/bg/more-singers.png);
+  transform: scale(0.4) rotate(-90deg);
+  margin-left: -8px;
 }

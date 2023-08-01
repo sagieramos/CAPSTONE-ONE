@@ -59,9 +59,9 @@ function createSpeakerElement(speaker) {
   const section = document.createElement('section');
   section.className = 'spk-bio';
 
-  const h2 = document.createElement('h2');
-  h2.className = 'spk-name';
-  h2.textContent = speaker.name;
+  const h3 = document.createElement('h3');
+  h3.className = 'spk-name';
+  h3.textContent = speaker.name;
 
   const pQualities = document.createElement('p');
   pQualities.className = 'spk-qualities';
@@ -71,7 +71,7 @@ function createSpeakerElement(speaker) {
   pSpeech.className = 'spk-speach';
   pSpeech.textContent = speaker.speech;
 
-  section.appendChild(h2);
+  section.appendChild(h3);
   section.appendChild(pQualities);
   section.appendChild(pSpeech);
 

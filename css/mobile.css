@@ -30,7 +30,7 @@ header {
   font-weight: 400;
 }
 
-.card h2 {
+.card h3 {
   font-size: 1.1rem;
   color: var(--cred);
 }
@@ -40,14 +40,14 @@ header {
   line-height: 1.4;
 }
 
-.headline h2:first-child {
+.headline h2 {
   color: var(--cred);
   font-weight: 400;
   font-size: 1.4rem;
   margin-bottom: 12px;
 }
 
-.headline h2:nth-of-type(2) {
+.headline h1 {
   font-family: 'COCOGOOSE', sans-serif;
   font-size: 2rem;
   font-weight: 500;
@@ -72,13 +72,14 @@ header {
   padding: 12px;
   font-size: 0.8rem;
   line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 .time {
   font-family: 'COCOGOOSE', sans-serif;
   font-weight: 500;
   color: var(--cblk);
-  margin-bottom: 4px;
+  margin-bottom: 24px;
 }
 
 #main-program {
@@ -190,10 +191,6 @@ header {
   font-size: 1.2rem;
 }
 
-.spk-qualities {
-  color: var(--cred);
-}
-
 .spk-qualities::after {
   content: "";
   display: block;
@@ -243,7 +240,5 @@ header {
   width: 90%;
   text-align: center;
   margin: 32px auto;
-  border: 1px solid var(--cblk);
-  padding: 12px;
   background-color: #fff;
 }

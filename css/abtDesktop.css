@@ -139,10 +139,12 @@
   display: flex;
   gap: 24px;
   margin-top: 40px;
+  width: 75%;
 }
 
 .p-c {
-  height: 130px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .p-c div {
@@ -174,11 +176,17 @@
   display: flex;
   min-width: var(--max-width);
   align-items: center;
+  justify-content: flex-start;
   margin: 0 auto;
   width: var(--window-width);
-  gap: 40px;
+  gap: 64px;
   padding: 50px 0;
   color: var(--cgray);
+}
+
+.buttom-f-nav-abt h2 {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 footer {
