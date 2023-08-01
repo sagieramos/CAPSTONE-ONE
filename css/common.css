@@ -29,6 +29,7 @@ body {
 
 a {
   color: inherit;
+  cursor: pointer;
 }
 
 #main-program {
@@ -111,8 +112,4 @@ a {
   position: absolute;
   background: #0000006c;
   z-index: 1;
-}
-
-a {
-  cursor: pointer;
 }
