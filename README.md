@@ -27,6 +27,7 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 
@@ -113,12 +114,19 @@ If you like this project, please consider subscribing to my GitHub account for u
 
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-I'll like to thank Microverse and my coding partner for their invaluable support and contribution to the codebase.
+- Jehovah.
+- [Microverse Team](https://www.microverse.org/).
+- Spacial thank to [Cindy Shin](https://www.behance.net/gallery/29845175/CC-Global-Summit-2015) for his beautiful design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## ❓ FAQ <a name="faq"></a>
 
+- **Are you using the same fonts family as in the design?**
+
+  - No becouse the font family used in the design is come with a subscripting. That's why I use a free google font family name Lato which is simmilar to the design.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
 
