@@ -101,12 +101,13 @@ function handleResize() {
       customFadeElement.remove();
       fadeToggle = true;
     }
+    checkbox.checked = false;
+    if (document.documentElement.classList.contains('disable-overflow')) document.documentElement.classList.remove('disable-overflow');
   } else if (window.innerWidth <= windowWidth.max) {
     while (speakerModal.childElementCount > 2) {
       speakerModal.removeChild(speakerModal.lastChild);
     }
     document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-more');
-    checkbox.checked = false;
   }
 }
 
@@ -144,6 +145,7 @@ function fade() {
 }
 
 export {
+  windowWidth,
   checkbox,
   sections,
   speakersData,

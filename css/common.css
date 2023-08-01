@@ -41,7 +41,6 @@ a {
   font-weight: 800;
   padding: 4px 0;
   background: #fff;
-  z-index: 3;
   color: var(--cred);
 }
 
@@ -112,4 +111,8 @@ a {
   position: absolute;
   background: #0000006c;
   z-index: 1;
+}
+
+a {
+  cursor: pointer;
 }
