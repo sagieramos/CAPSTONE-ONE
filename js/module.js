@@ -13,30 +13,38 @@ const speakersData = [
   },
   {
     imgSrc: './assets/speakers/mama.jpg',
-    name: 'Tosin Adewale',
-    qualities: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
-    speech: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate voluptates ipsa libero enim deserunt quia sunt quam laudantium nisi veniam, asperiores neque sed quaerat.',
-  },
-  {
-    imgSrc: './assets/speakers/omos.jpg',
     name: 'Samuel Juliana',
     qualities: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
     speech: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate voluptates ipsa libero enim deserunt quia sunt quam laudantium nisi veniam, asperiores neque sed quaerat.',
   },
   {
+    imgSrc: './assets/speakers/omos.jpg',
+    name: 'Omos Ehigbe',
+    qualities: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
+    speech: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate voluptates ipsa libero enim deserunt quia sunt quam laudantium nisi veniam, asperiores neque sed quaerat.',
+  },
+  {
     imgSrc: './assets/speakers/Tosin.jpg',
-    name: 'Stanley Osagie',
+    name: 'Iya Alata',
     qualities: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
     speech: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate voluptates ipsa libero enim deserunt quia sunt quam laudantium nisi veniam, asperiores neque sed quaerat.',
   },
   {
     imgSrc: './assets/speakers/mama.jpg',
-    name: 'Stanley Osagie',
+    name: 'Mama Omos',
     qualities: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
     speech: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate voluptates ipsa libero enim deserunt quia sunt quam laudantium nisi veniam, asperiores neque sed quaerat.',
   },
 ];
 
+const sections = {
+  program: document.querySelector('#main-program'),
+  join: document.querySelector('join'),
+  sponsor: document.querySelector('#sponsors'),
+  news: document.querySelector('#news'),
+};
+
+const checkbox = document.querySelector('#menu-checkbox');
 const body = document.querySelector('body');
 
 function createSpeakerElement(speaker) {
@@ -75,53 +83,72 @@ function createSpeakerElement(speaker) {
 
 const speakerModal = document.getElementById('speaker');
 const windowWidth = { max: 746, min: 747 };
+let fadeToggle = true;
 
 function handleResize() {
-    if (window.innerWidth >= windowWidth.min) {
-      while (speakerModal.firstChild) {
-        speakerModal.removeChild(speakerModal.firstChild);
-      }
-      speakersData.forEach((speaker) => {
-        const speakerElement = createSpeakerElement(speaker);
-        speakerModal.appendChild(speakerElement);
-      });
-      document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-less');
-    } else if (window.innerWidth <= windowWidth.max) {
-      while (speakerModal.childElementCount > 2) {
-        speakerModal.removeChild(speakerModal.lastChild);
-      }
-      document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-more');
+  if (window.innerWidth >= windowWidth.min) {
+    while (speakerModal.firstChild) {
+      speakerModal.removeChild(speakerModal.firstChild);
     }
-  }
-  
-  function createSpeakers() {
-    const width = window.innerWidth;
-    if (width < windowWidth.min) {
-      for (let i = 0; i < 2; i += 1) {
-        const speakerElement = createSpeakerElement(speakersData[i]);
-        speakerModal.appendChild(speakerElement);
-      }
-    } else if (width > windowWidth.max) {
-      while (speakerModal.firstChild) {
-        speakerModal.removeChild(speakersContainer.firstChild);
-      }
-      speakersData.forEach((speaker) => {
-        const speakerElement = createSpeakerElement(speaker);
-        speakerModal.appendChild(speakerElement);
-      });
-    }
-  }
+    speakersData.forEach((speaker) => {
+      const speakerElement = createSpeakerElement(speaker);
+      speakerModal.appendChild(speakerElement);
+    });
+    document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-less');
 
-  function fade(value) {
-    if (value) {
-        const div = document.createElement('div');
-        div.id = 'customFadeRDWH';
+    const customFadeElement = document.getElementById('customFadeRDWH');
+    if (customFadeElement) {
+      customFadeElement.remove();
+      fadeToggle = true;
     }
-    else {
-        if(body.contains('customFadeRDWH')) {
-            document.getElementById('customFadeRDWH').remove();
-        }
+  } else if (window.innerWidth <= windowWidth.max) {
+    while (speakerModal.childElementCount > 2) {
+      speakerModal.removeChild(speakerModal.lastChild);
+    }
+    document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-more');
+    checkbox.checked = false;
+  }
+}
+
+function createSpeakers() {
+  const width = window.innerWidth;
+  if (width < windowWidth.min) {
+    for (let i = 0; i < 2; i += 1) {
+      const speakerElement = createSpeakerElement(speakersData[i]);
+      speakerModal.appendChild(speakerElement);
+    }
+  } else if (width > windowWidth.max) {
+    while (speakerModal.firstChild) {
+      speakerModal.removeChild(document.getElementById('speaker').firstChild);
+    }
+    speakersData.forEach((speaker) => {
+      const speakerElement = createSpeakerElement(speaker);
+      speakerModal.appendChild(speakerElement);
+    });
+  }
+}
+
+function fade() {
+  if (fadeToggle) {
+    const div = document.createElement('div');
+    div.id = 'customFadeRDWH';
+    body.prepend(div);
+    fadeToggle = false;
+  } else {
+    const customFadeElement = document.getElementById('customFadeRDWH');
+    if (customFadeElement) {
+      customFadeElement.remove();
+      fadeToggle = true;
     }
   }
+}
 
-export { speakersData, createSpeakerElement, handleResize, createSpeakers, fade };
+export {
+  checkbox,
+  sections,
+  speakersData,
+  createSpeakerElement,
+  handleResize,
+  createSpeakers,
+  fade,
+};

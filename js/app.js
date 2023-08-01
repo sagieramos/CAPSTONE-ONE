@@ -1,15 +1,13 @@
-import { speakersData, createSpeakerElement, handleResize, createSpeakers } from './module.js';
-
-const checkbox = document.querySelector('#menu-checkbox');
+import {
+  sections,
+  speakersData,
+  createSpeakerElement,
+  handleResize, createSpeakers,
+  fade,
+  checkbox,
+} from './module.js';
 
 const speakersContainer = document.getElementById('speaker');
-
-const sections = {
-    program: document.querySelector('#main-program'),
-    join: document.querySelector('join'),
-    sponsor: document.querySelector('#sponsors'),
-    news: document.querySelector('#news'),
-  };
 
 function toggleSpeaker(e) {
   const { target } = e;
@@ -30,24 +28,25 @@ function toggleSpeaker(e) {
     target.setAttribute('id', 'toggle-more');
     target.innerText = 'MORE';
     target.addEventListener('click', toggleSpeaker);
-  } 
+  }
 }
 
 function handleNavigation(e) {
-    const { target } = e;
-      let sectionId = null;
-      if (target.matches('.hamburger-menu, .hamburger-menu *')) {
-        console.log('click');
-        document.documentElement.classList.toggle('disable-overflow');
-      }
-      if (target.matches('#program')) sectionId = 'program';
-      else if (target.matches('#news')) sectionId = 'news';
-      else if (target.matches('#sponsor')) sectionId = 'sponsor';
-      if (sectionId !== null) {
-        checkbox.checked = false;
-        sections[sectionId].scrollIntoView({ behavior: 'smooth' });
-        document.documentElement.classList.remove('disable-overflow');
-      }
+  const { target } = e;
+  let sectionId = null;
+  if (target.matches('.hamburger-menu, .hamburger-menu *')) {
+    document.documentElement.classList.toggle('disable-overflow');
+    fade();
+  }
+  if (target.matches('#program')) sectionId = 'program';
+  else if (target.matches('#news')) sectionId = 'news';
+  else if (target.matches('#sponsor')) sectionId = 'sponsor';
+  if (sectionId !== null) {
+    checkbox.checked = false;
+    sections[sectionId].scrollIntoView({ behavior: 'smooth' });
+    document.documentElement.classList.remove('disable-overflow');
+    fade();
+  }
 }
 
 document.addEventListener('DOMContentLoaded', createSpeakers);

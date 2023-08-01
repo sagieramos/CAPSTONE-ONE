@@ -20,12 +20,11 @@
 
 .hamburger-menu {
   --x-width: calc(var(--hamburger-height) * 1.41421356237);
-
   display: flex;
   flex-direction: column;
   gap: var(--hamburger-gap);
   width: max-content;
-  z-index: 2;
+  z-index: 99;
   cursor: pointer;
   position: absolute;
 }
@@ -91,6 +90,7 @@
   top: -2px;
   left: 0;
   color: var(--cblk);
+  z-index: 10;
 }
 
 .hamburger-menu:has(input:checked) + .sidebar {
