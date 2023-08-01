@@ -37,6 +37,8 @@ const speakersData = [
   },
 ];
 
+const body = document.querySelector('body');
+
 function createSpeakerElement(speaker) {
   const article = document.createElement('article');
   article.classList = 'speaker';
@@ -71,4 +73,55 @@ function createSpeakerElement(speaker) {
   return article;
 }
 
-export { speakersData, createSpeakerElement };
+const speakerModal = document.getElementById('speaker');
+const windowWidth = { max: 746, min: 747 };
+
+function handleResize() {
+    if (window.innerWidth >= windowWidth.min) {
+      while (speakerModal.firstChild) {
+        speakerModal.removeChild(speakerModal.firstChild);
+      }
+      speakersData.forEach((speaker) => {
+        const speakerElement = createSpeakerElement(speaker);
+        speakerModal.appendChild(speakerElement);
+      });
+      document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-less');
+    } else if (window.innerWidth <= windowWidth.max) {
+      while (speakerModal.childElementCount > 2) {
+        speakerModal.removeChild(speakerModal.lastChild);
+      }
+      document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-more');
+    }
+  }
+  
+  function createSpeakers() {
+    const width = window.innerWidth;
+    if (width < windowWidth.min) {
+      for (let i = 0; i < 2; i += 1) {
+        const speakerElement = createSpeakerElement(speakersData[i]);
+        speakerModal.appendChild(speakerElement);
+      }
+    } else if (width > windowWidth.max) {
+      while (speakerModal.firstChild) {
+        speakerModal.removeChild(speakersContainer.firstChild);
+      }
+      speakersData.forEach((speaker) => {
+        const speakerElement = createSpeakerElement(speaker);
+        speakerModal.appendChild(speakerElement);
+      });
+    }
+  }
+
+  function fade(value) {
+    if (value) {
+        const div = document.createElement('div');
+        div.id = 'customFadeRDWH';
+    }
+    else {
+        if(body.contains('customFadeRDWH')) {
+            document.getElementById('customFadeRDWH').remove();
+        }
+    }
+  }
+
+export { speakersData, createSpeakerElement, handleResize, createSpeakers, fade };

@@ -71,6 +71,10 @@ a {
   transform: scale(0.8);
 }
 
+.disable-overflow {
+  overflow: hidden;
+}
+
 .sponsors li:nth-child(1) {
   font-size: 30px;
   font-weight: 400;
@@ -100,4 +104,12 @@ a {
 
 .headline-abt * {
   text-align: center;
+}
+
+#customFadeRDWH {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background: #00000060;
+  z-index: 2;
 }

@@ -72,6 +72,13 @@
   padding: 50px 0;
 }
 
+.p-c div * {
+  font-weight: 100;
+  font-size: 0.85rem;
+  color: #fff;
+  line-height: 1.9;
+}
+
 .main-abt *:not(:last-child) {
   text-align: center;
   max-width: 800px;
@@ -103,7 +110,7 @@
   font-weight: 800;
   background: transparent;
   z-index: 3;
-  color: var(--cred);
+  color: var(--cgray);
   padding: 30px 50px;
   box-shadow: 0 0 10px rgba(128, 128, 128, 0.4);
 }
@@ -137,16 +144,18 @@
 }
 
 .p-c {
-  height: 100px;
+  height: 130px;
 }
 
 .p-c div {
-  background-color: #ffffff8f;
+  font-family: 'COCOGOOSE', sans-serif;
+  background-color: #ec534294;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 24px;
 }
 
 .p-c:first-child {
@@ -181,4 +190,8 @@ footer {
 .buttom-f-nav h2 {
   font-size: 0.9rem;
   font-weight: 400;
+}
+
+.mb {
+  display: none;
 }

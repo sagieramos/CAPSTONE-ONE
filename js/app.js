@@ -1,9 +1,15 @@
-import { speakersData, createSpeakerElement } from './module.js';
+import { speakersData, createSpeakerElement, handleResize, createSpeakers } from './module.js';
 
-const windowWidth = { max: 746, min: 747 };
+const checkbox = document.querySelector('#menu-checkbox');
 
 const speakersContainer = document.getElementById('speaker');
-const body = document.querySelector('body');
+
+const sections = {
+    program: document.querySelector('#main-program'),
+    join: document.querySelector('join'),
+    sponsor: document.querySelector('#sponsors'),
+    news: document.querySelector('#news'),
+  };
 
 function toggleSpeaker(e) {
   const { target } = e;
@@ -24,47 +30,29 @@ function toggleSpeaker(e) {
     target.setAttribute('id', 'toggle-more');
     target.innerText = 'MORE';
     target.addEventListener('click', toggleSpeaker);
-  }
+  } 
 }
 
-function handleResize() {
-  if (window.innerWidth >= windowWidth.min) {
-    while (speakersContainer.firstChild) {
-      speakersContainer.removeChild(speakersContainer.firstChild);
-    }
-    speakersData.forEach((speaker) => {
-      const speakerElement = createSpeakerElement(speaker);
-      speakersContainer.appendChild(speakerElement);
-    });
-    document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-less');
-  } else if (window.innerWidth <= windowWidth.max) {
-    const speakersContainer = document.getElementById('speaker');
-    while (speakersContainer.childElementCount > 2) {
-      speakersContainer.removeChild(speakersContainer.lastChild);
-    }
-    document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-more');
-  }
-}
-
-function createSpeakers() {
-  const width = window.innerWidth;
-  if (width < windowWidth.min) {
-    for (let i = 0; i < 2; i += 1) {
-      const speakerElement = createSpeakerElement(speakersData[i]);
-      speakersContainer.appendChild(speakerElement);
-    }
-  } else if (width > windowWidth.max) {
-    while (speakersContainer.firstChild) {
-      speakersContainer.removeChild(speakersContainer.firstChild);
-    }
-    speakersData.forEach((speaker) => {
-      const speakerElement = createSpeakerElement(speaker);
-      speakersContainer.appendChild(speakerElement);
-    });
-  }
+function handleNavigation(e) {
+    const { target } = e;
+      let sectionId = null;
+      if (target.matches('.hamburger-menu, .hamburger-menu *')) {
+        console.log('click');
+        document.documentElement.classList.toggle('disable-overflow');
+      }
+      if (target.matches('#program')) sectionId = 'program';
+      else if (target.matches('#news')) sectionId = 'news';
+      else if (target.matches('#sponsor')) sectionId = 'sponsor';
+      if (sectionId !== null) {
+        checkbox.checked = false;
+        sections[sectionId].scrollIntoView({ behavior: 'smooth' });
+        document.documentElement.classList.remove('disable-overflow');
+      }
 }
 
 document.addEventListener('DOMContentLoaded', createSpeakers);
 window.addEventListener('resize', handleResize);
-body.addEventListener('click', toggleSpeaker);
-body.addEventListener('touchstart', toggleSpeaker);
+window.addEventListener('click', toggleSpeaker, { passive: false });
+window.addEventListener('touchstart', toggleSpeaker, { passive: false });
+window.addEventListener('click', handleNavigation, { passive: false });
+window.addEventListener('touchstart', handleNavigation, { passive: false });
