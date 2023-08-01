@@ -75,7 +75,6 @@
 .logo-abt-f {
   font-weight: 800;
   background: #fff;
-  z-index: 3;
   color: var(--cred);
   padding: 24px 24px;
   box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
@@ -148,7 +147,6 @@
   margin-top: 12px;
   font-weight: 800;
   background: #fff;
-  z-index: 3;
   color: var(--cred);
   padding: 25px 100px;
   box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
