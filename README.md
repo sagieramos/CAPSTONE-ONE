@@ -27,37 +27,31 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 
-# 📖 Fullstack Development <a name="about-project"></a>
+# 📖 Fullstack Development <a name="Capstone"></a>
 
-**Portforlio** is a simple HTML and CSS project that shows about me: 
+**Capstone** is a simple HTML, CSS and JavaScript project: 
 
 ## 🛠  Built With <a name="built-with"></a>
 
 
 ### Key Features <a name="key-features"></a>
 
-- Mobile Webpage
-- Contact Form
 - Responsive webpage (Mobile and Desktop)
 - Menu
     - When the user clicks (or taps) the hamburger button, the mobile menu appears.
     - When the user clicks (or taps) the close (X) button, the mobile menu disappears.
     - When the user clicks (or taps) any of the mobile menu options, the mobile menu disappears.
     - When the user clicks (or taps) any of the mobile menu options, a correct part of the page is displayed.
-- Popup Window
-- Contact form validation.
-- Preserve data in the browser
-  - When the user changes the content of any input field, the data is saved to the local storage.
-  - When the user loads the page, if there is any data in the local storage the input fields are pre-filled with this data.
   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://sagieramos.github.io/Portfolio/)
+- [Live Demo Link](https://sagieramos.github.io/CAPSTONE-ONE/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -72,14 +66,14 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 ```sh
-  git clone https://github.com/sagieramos/aboutMe $HOME/aboutMe
+  git clone https://github.com/sagieramos/CAPSTONE-ONE $HOME
 ```
 ### Usage
 
 To run the project, execute the following command:
 
 ```sh
-  open $HOME/aboutMe/index.html
+  open $HOME/CAPSTONE-ONE/index.html
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -91,17 +85,6 @@ To run the project, execute the following command:
 - Twitter: [@sagieramos](https://twitter.com/sagieramos)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/sagieramos)
 
-👤 ***Gustavo Franco**
-- GitHub: [@gfrancoarq](https://github.com/gfrancoarq)
-- Twitter: [@gfrancoarq](https://twitter.com/Gfrancoarq)
-- LinkedIn: [gustavfranco](https://linkedin.com/in/gustavfranco)
-
-👤 ***Richard Sikaonga**
-- GitHub: [@githubhandle](https://github.com/richie1988)
-- Twitter: [@twitterhandle](https://twitter.com/RICHARDSIK51272)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/richard-sikaonga-039940275/)
-- LinkedIn: [Instagram](https://www.instagram.com/richiesik/)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -111,7 +94,6 @@ To run the project, execute the following command:
 - [ ] **Database**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ## 🤝 Contributing <a name="contributing"></a>
@@ -132,12 +114,19 @@ If you like this project, please consider subscribing to my GitHub account for u
 
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-I'll like to thank Microverse and my coding partner for their invaluable support and contribution to the codebase.
+- Jehovah.
+- [Microverse Team](https://www.microverse.org/).
+- Spacial thank to [Cindy Shin](https://www.behance.net/gallery/29845175/CC-Global-Summit-2015) for his beautiful design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## ❓ FAQ <a name="faq"></a>
 
+- **Are you using the same fonts family as in the design?**
+
+  - No becouse the font family used in the design is come with a subscripting. That's why I use a free google font family name Lato which is simmilar to the design.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
 

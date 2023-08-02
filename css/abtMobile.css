@@ -1,0 +1,195 @@
+body {
+  color: var(--cblk);
+}
+
+.headline-container-abt {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.headline-abt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 24px 44px 24px;
+  color: var(--cblk);
+}
+
+.grtings {
+  color: var(--cred);
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.title-abt {
+  font-family: 'COCOGOOSE', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  color: var(--cred);
+}
+
+.intro-txt-abt {
+  width: fit-content;
+  background: #fff;
+  padding: 12px;
+  margin-bottom: 50px;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.title-abt-1 {
+  font-size: 1.2rem;
+}
+
+.intro-txt-abt-2 {
+  width: fit-content;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.email {
+  font-weight: 600;
+  border-bottom: 1px solid var(--cblk);
+  margin-top: 8px;
+}
+
+.buttom-f-nav-abt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 12px;
+  padding: 24px 12px;
+}
+
+#sponsors-abt {
+  background: #272a31;
+  color: #fff;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logo-abt-f {
+  font-weight: 800;
+  background: #fff;
+  color: var(--cred);
+  padding: 24px 24px;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
+}
+
+.logo-abt-f::before {
+  content: "";
+  display: block;
+  border: 2px solid #000;
+  border-radius: 0 24px 0 0;
+  padding: 4px;
+  margin-left: 11.5px;
+  margin-bottom: -24px;
+  height: 30px;
+  width: 60px;
+}
+
+.pass-celebrate {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.p-c {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.p-c div {
+  font-family: 'COCOGOOSE', sans-serif;
+  background-color: #ec534294;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.p-c div * {
+  font-weight: 100;
+  font-size: 0.85rem;
+  color: #fff;
+  line-height: 1.9;
+}
+
+.p-c:first-child {
+  background-image: url(../assets/pass-events/unnam.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.p-c:last-child {
+  background: url(../assets/pass-events/unnamed.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.title-abt-1::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid var(--cred);
+  width: 30px;
+  margin: 12px auto 0;
+}
+
+.logo-abk {
+  margin-top: 12px;
+  font-weight: 800;
+  background: #fff;
+  color: var(--cred);
+  padding: 25px 100px;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.3);
+}
+
+.main-abt-2 {
+  text-align: center;
+  padding: 32px 24px;
+  box-shadow: 0 0 10px rgba(128, 128, 128, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-abk::before {
+  content: "";
+  display: block;
+  border: 2px solid #000;
+  border-radius: 0 24px 0 0;
+  padding: 4px;
+  margin-left: 11.5px;
+  margin-bottom: -24px;
+  height: 30px;
+  width: 60px;
+}
+
+.main-abt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 24px;
+}
+
+.main-abt *:not(:last-child) {
+  text-align: center;
+  max-width: 800px;
+}
