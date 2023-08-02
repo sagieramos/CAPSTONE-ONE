@@ -34,7 +34,7 @@ function toggleSpeaker(e) {
 function handleNavigation(e) {
   const { target } = e;
   let sectionId = null;
-  if (target.matches('.hamburger-menu, .hamburger-menu *')) {
+  if (target.matches('.hamburger-menu *')) {
     document.documentElement.classList.toggle('disable-overflow');
     fade();
   }
