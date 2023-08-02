@@ -40,16 +40,16 @@ header {
   line-height: 1.4;
 }
 
-.headline h2 {
+.headline h2:first-child {
   color: var(--cred);
   font-weight: 400;
   font-size: 1.4rem;
   margin-bottom: 12px;
 }
 
-.headline h1 {
+h1 {
   font-family: 'COCOGOOSE', sans-serif;
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: 500;
   margin-bottom: 12px;
   line-height: 1.2;
@@ -79,7 +79,8 @@ header {
   font-family: 'COCOGOOSE', sans-serif;
   font-weight: 500;
   color: var(--cblk);
-  margin-bottom: 24px;
+  margin-bottom: 8px;
+  font-size: 1rem;
 }
 
 #main-program {

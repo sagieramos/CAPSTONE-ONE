@@ -22,7 +22,7 @@ function fade() {
 
 function handleNavigation(e) {
   const { target } = e;
-  if (target.matches('.hamburger-menu, .hamburger-menu *')) {
+  if (target.matches('.hamburger-menu *')) {
     document.documentElement.classList.toggle('disable-overflow');
     fade();
     check = !check;

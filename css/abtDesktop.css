@@ -13,13 +13,13 @@
   color: var(--cblk);
 }
 
-.title-abt {
+h1 {
   font-family: 'COCOGOOSE', sans-serif;
-  font-size: 3rem;
-  font-weight: 500;
   margin-bottom: 24px;
   line-height: 1.2;
   color: var(--cred);
+  font-size: clamp(16px, 6vw, 72px);
+  font-weight: 500;
 }
 
 .title-abt-1 {
@@ -91,6 +91,7 @@
   color: var(--cred);
   padding: 50px 200px;
   box-shadow: 0 0 10px rgba(128, 128, 128, 0.7);
+  font-size: 16px;
 }
 
 .logo-abk::before {
@@ -111,6 +112,7 @@
   color: var(--cgray);
   padding: 30px 50px;
   box-shadow: 0 0 10px rgba(128, 128, 128, 0.4);
+  font-size: 16px;
 }
 
 .logo-abt-f::before {
