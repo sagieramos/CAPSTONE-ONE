@@ -36,9 +36,7 @@ function handleNavigation(e) {
   const { target } = e;
   if (target.matches('#menu-checkbox')) {
     fade(checkbox.checked);
-  }
-
-  if (target.parentNode === menu) {
+  } else if (target.parentNode === menu) {
     e.preventDefault();
     checkbox.checked = false;
 
