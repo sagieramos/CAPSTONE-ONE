@@ -1,7 +1,12 @@
 import { handleResize, checkbox, fade } from './module.js';
 
 function handleNavigation(e) {
-  if (e.target.matches('#menu-checkbox')) fade(checkbox.checked);
+  const { target } = e;
+  if (target.matches('#menu-checkbox')) fade(checkbox.checked);
+  else if (target.id === 'customFadeRDWH') {
+    checkbox.checked = false;
+    fade(checkbox.checked);
+  }
 }
 
 function init() {
