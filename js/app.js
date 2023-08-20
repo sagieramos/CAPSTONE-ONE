@@ -44,6 +44,9 @@ function handleNavigation(e) {
     else window.location.href = target.href;
 
     fade(checkbox.checked);
+  } else if (target.id === 'customFadeRDWH') {
+    checkbox.checked = false;
+    fade(checkbox.checked);
   }
 }
 
