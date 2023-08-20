@@ -1,4 +1,5 @@
 const windowWidth = { max: 746, min: 747 };
+const body = document.querySelector('body');
 
 const speakersData = [
   {
@@ -41,7 +42,7 @@ const speakersData = [
 
 const sections = {
   program: document.querySelector('#main-program'),
-  join: document.querySelector('join'),
+  join: document.querySelector('#join'),
   sponsor: document.querySelector('#sponsors'),
   news: document.querySelector('#news'),
 };
@@ -66,8 +67,6 @@ function createSpeakerElement(speaker) {
   return article;
 }
 
-const speakerModal = document.getElementById('speaker');
-
 function createSpeakers() {
   const fragment = document.createDocumentFragment();
   speakersData.forEach((speaker, index) => {
@@ -75,7 +74,28 @@ function createSpeakers() {
     if (index >= 2) speakerElement.classList.add('hidden');
     fragment.appendChild(speakerElement);
   });
-  speakerModal.appendChild(fragment);
+  document.getElementById('speaker').appendChild(fragment);
+}
+
+function handleResize() {
+  if (window.innerWidth >= windowWidth.min && checkbox.checked) {
+    const customFadeElement = document.getElementById('customFadeRDWH');
+    customFadeElement.remove();
+    checkbox.checked = false;
+    if (document.documentElement.classList.contains('disable-overflow')) document.documentElement.classList.remove('disable-overflow');
+  }
+}
+
+function fade(bool) {
+  if (bool) {
+    document.documentElement.classList.add('disable-overflow');
+    const div = document.createElement('div');
+    div.id = 'customFadeRDWH';
+    body.prepend(div);
+  } else {
+    document.documentElement.classList.remove('disable-overflow');
+    document.getElementById('customFadeRDWH').remove();
+  }
 }
 
 export {
@@ -83,4 +103,6 @@ export {
   sections,
   createSpeakers,
   windowWidth,
+  handleResize,
+  fade,
 };

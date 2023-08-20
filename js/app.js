@@ -2,10 +2,11 @@ import {
   sections,
   createSpeakers,
   checkbox,
+  handleResize,
+  fade,
 } from './module.js';
 
 const speakersContainer = document.getElementById('speaker');
-const body = document.querySelector('body');
 
 function toggleSpeaker(e) {
   const { target } = e;
@@ -29,28 +30,22 @@ function toggleSpeaker(e) {
   }
 }
 
+const menu = document.querySelector('.sidebar');
+
 function handleNavigation(e) {
   const { target } = e;
-  let sectionId = null;
   if (target.matches('#menu-checkbox')) {
-    if (checkbox.checked) {
-      document.documentElement.classList.add('disable-overflow');
-      const div = document.createElement('div');
-      div.id = 'customFadeRDWH';
-      body.prepend(div);
-    } else {
-      document.documentElement.classList.remove('disable-overflow');
-      document.getElementById('customFadeRDWH').remove();
-    }
+    fade(checkbox.checked);
   }
-  if (target.matches('#program')) sectionId = 'program';
-  else if (target.matches('#news')) sectionId = 'news';
-  else if (target.matches('#sponsor')) sectionId = 'sponsor';
-  if (sectionId) {
+
+  if (target.parentNode === menu) {
+    e.preventDefault();
     checkbox.checked = false;
-    sections[sectionId].scrollIntoView({ behavior: 'smooth' });
-    document.documentElement.classList.remove('disable-overflow');
-    document.getElementById('customFadeRDWH').remove();
+
+    if (target.id in sections) sections[target.id].scrollIntoView({ behavior: 'smooth' });
+    else window.location.href = target.href;
+
+    fade(checkbox.checked);
   }
 }
 
@@ -61,8 +56,9 @@ function handleEvent(e) {
 
 function init() {
   createSpeakers();
-  window.addEventListener('click', handleEvent);
-  window.addEventListener('touchstart', handleEvent);
+  window.addEventListener('click', handleEvent, { passive: false });
+  window.addEventListener('touchstart', handleEvent, { passive: false });
+  window.addEventListener('resize', handleResize);
 }
 
 document.addEventListener('DOMContentLoaded', init);
