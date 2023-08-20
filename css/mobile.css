@@ -242,3 +242,7 @@ header {
   margin: 32px auto;
   background-color: #fff;
 }
+
+.hidden {
+  display: none;
+}

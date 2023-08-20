@@ -1,3 +1,5 @@
+const windowWidth = { max: 746, min: 747 };
+
 const speakersData = [
   {
     imgSrc: './assets/speakers/omos.jpg',
@@ -45,112 +47,40 @@ const sections = {
 };
 
 const checkbox = document.querySelector('#menu-checkbox');
-const body = document.querySelector('body');
 
 function createSpeakerElement(speaker) {
   const article = document.createElement('article');
-  article.classList = 'speaker';
+  article.className = 'speaker';
+  const {
+    imgSrc, name, qualities, speech,
+  } = speaker;
 
-  const img = document.createElement('img');
-  img.className = 'spk-img';
-  img.src = speaker.imgSrc;
-  img.alt = speaker.name;
-
-  const section = document.createElement('section');
-  section.className = 'spk-bio';
-
-  const h3 = document.createElement('h3');
-  h3.className = 'spk-name';
-  h3.textContent = speaker.name;
-
-  const pQualities = document.createElement('p');
-  pQualities.className = 'spk-qualities';
-  pQualities.textContent = speaker.qualities;
-
-  const pSpeech = document.createElement('p');
-  pSpeech.className = 'spk-speach';
-  pSpeech.textContent = speaker.speech;
-
-  section.appendChild(h3);
-  section.appendChild(pQualities);
-  section.appendChild(pSpeech);
-
-  article.appendChild(img);
-  article.appendChild(section);
+  article.innerHTML = `
+  <img class="spk-img" src="${imgSrc}" alt="name">
+    <section class="spk-bio">
+      <h3 class="spk-name">${name}</h3>
+      <p class="spk-qualities">${qualities}</p>
+      <p class="spk-speach">${speech}</p>
+    </section>`;
 
   return article;
 }
 
 const speakerModal = document.getElementById('speaker');
-const windowWidth = { max: 746, min: 747 };
-let fadeToggle = true;
-
-function handleResize() {
-  if (window.innerWidth >= windowWidth.min) {
-    while (speakerModal.firstChild) {
-      speakerModal.removeChild(speakerModal.firstChild);
-    }
-    speakersData.forEach((speaker) => {
-      const speakerElement = createSpeakerElement(speaker);
-      speakerModal.appendChild(speakerElement);
-    });
-    document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-less');
-
-    const customFadeElement = document.getElementById('customFadeRDWH');
-    if (customFadeElement) {
-      customFadeElement.remove();
-      fadeToggle = true;
-    }
-    checkbox.checked = false;
-    if (document.documentElement.classList.contains('disable-overflow')) document.documentElement.classList.remove('disable-overflow');
-  } else if (window.innerWidth <= windowWidth.max) {
-    while (speakerModal.childElementCount > 2) {
-      speakerModal.removeChild(speakerModal.lastChild);
-    }
-    document.querySelector('.toggle-more-less').setAttribute('id', 'toggle-more');
-  }
-}
 
 function createSpeakers() {
-  const width = window.innerWidth;
-  if (width < windowWidth.min) {
-    for (let i = 0; i < 2; i += 1) {
-      const speakerElement = createSpeakerElement(speakersData[i]);
-      speakerModal.appendChild(speakerElement);
-    }
-  } else if (width > windowWidth.max) {
-    while (speakerModal.firstChild) {
-      speakerModal.removeChild(document.getElementById('speaker').firstChild);
-    }
-    speakersData.forEach((speaker) => {
-      const speakerElement = createSpeakerElement(speaker);
-      speakerModal.appendChild(speakerElement);
-    });
-  }
-}
-
-function fade() {
-  if (fadeToggle) {
-    const div = document.createElement('div');
-    div.id = 'customFadeRDWH';
-    body.prepend(div);
-    fadeToggle = false;
-  } else {
-    const customFadeElement = document.getElementById('customFadeRDWH');
-    if (customFadeElement) {
-      customFadeElement.remove();
-      fadeToggle = true;
-    }
-  }
+  const fragment = document.createDocumentFragment();
+  speakersData.forEach((speaker, index) => {
+    const speakerElement = createSpeakerElement(speaker);
+    if (index >= 2) speakerElement.classList.add('hidden');
+    fragment.appendChild(speakerElement);
+  });
+  speakerModal.appendChild(fragment);
 }
 
 export {
-  windowWidth,
   checkbox,
   sections,
-  speakersData,
-  createSpeakerElement,
-  handleResize,
   createSpeakers,
-  fade,
+  windowWidth,
 };
