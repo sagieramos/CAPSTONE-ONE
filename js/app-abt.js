@@ -1,47 +1,13 @@
-import { windowWidth } from './module.js';
-
-let fadeToggle = true;
-let check = false;
-const body = document.querySelector('body');
-const checkbox = document.querySelector('#menu-checkbox');
-
-function fade() {
-  if (fadeToggle) {
-    const div = document.createElement('div');
-    div.id = 'customFadeRDWH';
-    body.prepend(div);
-    fadeToggle = false;
-  } else {
-    const customFadeElement = document.getElementById('customFadeRDWH');
-    if (customFadeElement) {
-      customFadeElement.remove();
-      fadeToggle = true;
-    }
-  }
-}
+import { handleResize, checkbox, fade } from './module.js';
 
 function handleNavigation(e) {
-  const { target } = e;
-  if (target.matches('.hamburger-menu, .hamburger-menu *')) {
-    document.documentElement.classList.toggle('disable-overflow');
-    fade();
-    check = !check;
-  }
+  if (e.target.matches('#menu-checkbox')) fade(checkbox.checked);
 }
 
-function handleResize() {
-  if (window.innerWidth >= windowWidth.min && check) {
-    const customFadeElement = document.getElementById('customFadeRDWH');
-    if (customFadeElement) {
-      customFadeElement.remove();
-      fadeToggle = true;
-    }
-    checkbox.checked = false;
-    check = false;
-    if (document.documentElement.classList.contains('disable-overflow')) document.documentElement.classList.remove('disable-overflow');
-  }
+function init() {
+  window.addEventListener('click', handleNavigation);
+  window.addEventListener('touchstart', handleNavigation);
+  window.addEventListener('resize', handleResize);
 }
 
-window.addEventListener('click', handleNavigation, { passive: false });
-window.addEventListener('touchstart', handleNavigation, { passive: false });
-window.addEventListener('resize', handleResize);
+window.addEventListener('DOMContentLoaded', init);
